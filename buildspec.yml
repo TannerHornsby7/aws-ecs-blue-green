@@ -6,8 +6,6 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - git config --global credential.helper store
-      - echo "https://$GITHUB_TOKEN@github.com" > ~/.git-credentials
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password | docker login --username AWS --password-stdin $REPOSITORY_URI
